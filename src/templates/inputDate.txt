@@ -1,0 +1,4 @@
+<spd-data class="p-campo-input" fxFlex="30" name="dataNascimento" [datainicio]="dataInicialFundacao"
+                  [datafim]="dataFinalFundacao" tooltip="Este campo deve conter a data de fundação"
+                  [disabled]="semPermissaoAlterar()" erro="Data de fundação inválida"
+                  label="Data de Fundação" [(ngModel)]="model.dataFundacao" [required]="true"></spd-data>

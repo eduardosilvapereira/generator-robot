@@ -1,0 +1,64 @@
+<div class="p-conteudo-cadastro" [ngClass]="{'p-card': componentePrincipal()}">
+  <div class="p-spinner-container">
+    <mat-progress-bar [style.display]="processando ? 'block' : 'none'" mode="indeterminate"></mat-progress-bar>
+  </div>
+
+  <div class="p-header-cadastro">
+    <h2 class="p-titulo-cadastro" *ngIf="!parametros.multiJanelas">Cadastro de {{parametros.nome}}</h2>
+    <div class="p-opcoes-lista">
+      <mat-checkbox [checked]="model.flagAtivo === false"
+                    (change)="model.flagAtivo = model.flagAtivo === false; model.motivoInatividade = null"
+                    class="p-campo-input p-mat-checkbox-form" name="flagAtivo"
+                    matTooltip="Este campo deve ser marcado caso esteja inativo"
+                    matTooltipClass="p-mat-tooltip"
+                    [disabled]="semPermissaoAlterar()">Inativo
+      </mat-checkbox>
+    </div>
+  </div>
+
+  <br>
+
+  <form (ngSubmit)="salvar(formCadastro)" #formCadastro="ngForm">
+    <mat-dialog-content class="p-mat-dialog-content">
+      <div fxLayout="{{fxLayout}}">
+        {{ FIELDS }}
+      </div>
+
+      <div fxLayout="{{fxLayout}}">
+        <mat-form-field appearance="outline" *ngIf="model.chave" class="p-campo-input">
+          <mat-label>Chave</mat-label>
+          <input [value]="model.chave" name="chave" matInput placeholder="CHAVE" autocomplete="off" type="text"
+                 disabled>
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="{{fxLayout}}">
+        <mat-form-field appearance="outline" *ngIf="model.flagAtivo === false" class="p-campo-input" fxFlex="100"
+                        matTooltip="Este campo deve conter o motivo da inatividade"
+                        matTooltipClass="p-mat-tooltip-form-field">
+          <mat-label>Motivo da inatividade</mat-label>
+          <input maxlength="255" [(ngModel)]="model.motivoInatividade" name="motivoInatividade"
+                 spdRequiredTrim [required]="model.flagAtivo === false" matInput
+                 placeholder="Digite o motivo da inatividade"
+                 autocomplete="off" [disabled]="semPermissaoAlterar()">
+          <mat-error>Este campo deve conter o motivo da inatividade</mat-error>
+        </mat-form-field>
+      </div>
+    </mat-dialog-content>
+
+    <div fxLayout="{{fxLayout}}">
+      <div class="p-salvar-cadastro">
+        <spd-criar-outro (change)="criarOutro=!!$event" *ngIf="!dados['desabilitarCriarOutro']"
+                         [disabled]="desabilitarCriarOutro()"></spd-criar-outro>
+        <button mat-raised-button color="primary" type="submit"
+                [disabled]="!formCadastro.form.valid || semPermissaoAlterar()"
+                matTooltip="Existem campos inválidos ou não informados" matTooltipClass="p-mat-tooltip"
+                [matTooltipDisabled]="formCadastro.valid">Salvar
+        </button>
+        <button mat-button type="button" (click)="cancelar(formCadastro)" [disabled]="processando"
+                matTooltip="Fecha e descarta os dados atuais" matTooltipClass="p-mat-tooltip">Fechar
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

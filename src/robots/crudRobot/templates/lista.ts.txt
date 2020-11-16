@@ -1,0 +1,56 @@
+// TODO: VERIFICAR AS IMPORTAÇÕES E A FORMATAÇÃO DO ARQUIVO
+import {Component, Inject} from '@angular/core';
+import {MAT_DIALOG_DATA} from '@angular/material';
+
+import {Cadastro{{ NAME }}Component} from '../cadastro-{{ NAME_FOR_FILE }}/cadastro-{{ NAME_FOR_FILE }}.component';
+import {
+  ColunaRequisicao,
+  ColunasRequisicaoComponent
+} from '../../../../../share/components/colunas-requisicao/colunas-requisicao.component';
+import {CampoParametrizavelComponent} from '../../../../../share/components/campo-parametrizavel/campo-parametrizavel.component';
+import {{{ NAME }}} from '../../../models/{{ NAME_FOR_FILE }}';
+import {Booleano} from '../../../../../share/models/enums/booleano.enum';
+import {FiltroRequisicao} from '../../../../../share/components/filtros-requisicao/filtro-requisicao';
+import {FiltrosRequisicaoService} from '../../../../../share/components/filtros-requisicao/filtros-requisicao.service';
+import {ListaGenericoParametro} from '../../../../../share/components/generico/lista-generico/lista-generico-parametro';
+import {ObjetoUtilsService} from '../../../../../share/services/utils/objeto-utils.service';
+
+@Component({
+  selector: 'spd-lista-{{ NAME_PLURAL_FOR_FILE }}',
+  template: '<spd-lista-generico [parametros]="parametros"></spd-lista-generico>',
+  styleUrls: []
+})
+
+export class Lista{{ NAME_PLURAL }}Component {
+  parametros: ListaGenericoParametro;
+
+  constructor(@Inject(MAT_DIALOG_DATA) public dados: any) {
+    this.parametros = new ListaGenericoParametro('{{ TITLE_PLURAL }}');
+    this.parametros.funcionalidades = ['{{ FUNCTIONALITIES }}'];
+    this.parametros.chave = 'spd-lista-{{ NAME_PLURAL_FOR_FILE }}';
+    this.parametros.endPoint = '{{ ENDPOINT }}';
+    this.parametros.ordenacaoInicial = 'chave';
+    this.parametros.sentidoOrdenacao = 'asc';
+    this.parametros.acoes = [{{ ACTIONS }}];
+    this.parametros.classeBase = {{ NAME }};
+    this.parametros.componenteCadastro = Cadastro{{ NAME }}Component;
+    this.parametros.colunasRequisicao = Lista{{ NAME_PLURAL }}Component.carregarColunas();
+    this.parametros.filtrosRequisicao = Lista{{ NAME_PLURAL }}Component.carregarFiltros(dados.filtroRequisicao);
+  }
+
+  static carregarColunas(): Array<ColunaRequisicao> {
+    const colunasRequisicao: Array<ColunaRequisicao> = [];
+    colunasRequisicao.push(ColunasRequisicaoComponent.adicionaColuna('Ativo', 'flagAtivo'));
+    colunasRequisicao.push(ColunasRequisicaoComponent.adicionaColuna('MotivoInatividade', 'motivoInatividade', false, false));
+    return colunasRequisicao;
+  }
+
+  static carregarFiltros(filtrosRequisicaoAdicional: Array<FiltroRequisicao>): Array<FiltroRequisicao> {
+    const filtrosRequisicao: Array<FiltroRequisicao> = [];
+    filtrosRequisicao.push(FiltrosRequisicaoService.adicionaFiltro('Ativo', 'flagAtivo', '=',
+      true, true, true, 'select', '', 'flagAtivo',
+      [CampoParametrizavelComponent.criarCampoSelect('Ativo', ObjetoUtilsService.converteEnumParaArray(Booleano))]));
+    return FiltrosRequisicaoService.unirFiltros(filtrosRequisicao, filtrosRequisicaoAdicional);
+  }
+
+}

@@ -1,0 +1,80 @@
+{
+  "cruds": [
+    {
+      "nomeSingular": "ProfissionalEducacao",
+      "nomePlural": "ProfissionaisEducacao",
+      "tituloSingular": "Profissional",
+      "tituloPlural": "Profissionais",
+      "funcionalidade": "profissionais-educacao",
+      "endpoint": "$educacao$ProfissionalEducacao",
+      "acoes": "inserir,alterar,alterar-seus,excluir,imprimir,consultar"
+    }
+  ],
+  "endpoints": [
+    {
+      "funcionalidade": "ProfissionalEducacao",
+      "urlPlural": "profissionais",
+      "urlSingular": "profissional"
+    },
+    {
+      "funcionalidade": "VinculoProfissionalEducacao",
+      "urlPlural": "vinculos-profissionais-educacao",
+      "urlSingular": "vinculo-profissional-educacao"
+    },
+    {
+      "funcionalidade": "CargoEducacao",
+      "urlPlural": "cargos-educacao",
+      "urlSingular": "cargo-educacao"
+    },
+    {
+      "funcionalidade": "RegimeContratacaoEducacao",
+      "urlPlural": "regimes-contratacoes",
+      "urlSingular": "regime-contratacao"
+    },
+    {
+      "funcionalidade": "AtividadeComplementar",
+      "urlPlural": "atividades-complementares",
+      "urlSingular": "atividade-complementar"
+    },
+    {
+      "funcionalidade": "AtividadeAee",
+      "urlPlural": "atividades-aee",
+      "urlSingular": "atividade-aee"
+    },
+    {
+      "funcionalidade": "EtapaEnsino",
+      "urlPlural": "etapas-ensino",
+      "urlSingular": "etapa-ensino"
+    },
+    {
+      "funcionalidade": "EquivalenciaEtapaEnsino",
+      "urlPlural": "equivalencias-etapas-ensino",
+      "urlSingular": "equivalencia-etapa-ensino"
+    },
+    {
+      "funcionalidade": "ModalidadeEtapaEnsino",
+      "urlPlural": "modalidades-etapas-ensino",
+      "urlSingular": "modalidade-etapa-ensino"
+    },
+    {
+      "funcionalidade": "Disciplina",
+      "urlPlural": "disciplinas",
+      "urlSingular": "disciplina"
+    },
+    {
+      "funcionalidade": "CursoFormacaoSuperior",
+      "urlPlural": "cursos-formacoes-superiores",
+      "urlSingular": "curso-formacao-superior"
+    },
+    {
+      "funcionalidade": "TipoInstituicaoSuperior",
+      "urlPlural": "tipos-instituicoes-superiores",
+      "urlSingular": "tipo-instituicao-superior"
+    },
+    {
+      "funcionalidade": "AreaConhecimento",
+      "urlPlural": "areas-conhecimento",
+      "urlSingular": "area-conhecimento"
+    }
+  ]
+}

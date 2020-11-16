@@ -1,0 +1,8 @@
+<spd-autocomplete fxFlex="33.3"
+                              class="p-campo-input"
+                              [(valor)]="model.orgaoVinculacaoEnsino"
+                              [campo]="autocompleteOrgaoVinculacaoEnsino"
+                              [disabled]="semPermissaoAlterar()"
+                              [mensagemValidacao]="'É necessário informar o Orgão de Vinculação'"
+                              [required]="true"
+                              [permissoes]="permissaoUsuario"></spd-autocomplete>

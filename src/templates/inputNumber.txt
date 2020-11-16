@@ -1,0 +1,9 @@
+<mat-form-field appearance="outline" class="p-campo-input" fxFlex="32.3"
+                            matTooltip="Este campo deve conter a Latitude"
+                            matTooltipClass="p-mat-tooltip-form-field">
+              <mat-label>Latitude</mat-label>
+              <input spdSoDecimal [(ngModel)]="model.latitude" name="latitude" id="latitude" matInput
+                     placeholder="Digite a Latitude" autocomplete="off" type="number" [spdMinValue]="1" [spdMaxValue]="999"
+                     [disabled]="semPermissaoAlterar()">
+              <mat-error>Latitude inválida</mat-error>
+            </mat-form-field>

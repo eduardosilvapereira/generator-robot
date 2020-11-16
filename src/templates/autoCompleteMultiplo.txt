@@ -1,0 +1,47 @@
+<spd-autocomplete-multiplo fxFlex="100"
+                                       [(valor)]="model.locaisFuncionamentoEstabelecimentoEnsino"
+                                       [campo]="autocompleteLocaisFuncionamentoEstabelecimentoEnsino"
+                                       (afterSetValue)="verificaLocaisFuncionamento()"
+                                       (afterClear)="verificaLocaisFuncionamento()"
+                                       [disabled]="semPermissaoAlterar()"
+                                       class="p-campo-input"
+                                       [permissoes]="permissaoUsuario">
+            </spd-autocomplete-multiplo>
+
+
+
+--------------------------
+
+autocompleteLocaisFuncionamentoEstabelecimentoEnsino = AutocompleteMultiploComponent.criarCampoAutoComplete(LocalFuncionamento,
+    'Local de Funcionamento', '', '$educacao$LocalFuncionamento',
+    ['nome', 'iLocalFuncionamento'], ['nome'], 'iLocalFuncionamento',
+    'locaisFuncionamentoEstabelecimentoEnsino', null);
+
+--------------------------
+
+static converteLocalFuncionamentoParaLocalFuncionamentoEnsino(localFuncionamento: LocalFuncionamento): LocalFuncionamentoEstabelecimentoEnsino {
+  const localFuncionamentoEstabelecimentoEnsino = new LocalFuncionamentoEstabelecimentoEnsino();
+  localFuncionamentoEstabelecimentoEnsino.localFuncionamento = localFuncionamento;
+  return localFuncionamentoEstabelecimentoEnsino;
+}
+
+static reconverteLocalFuncionamentoEnsinoParaLocaisFuncionamento(localFuncionamentoEstabelecimentoEnsino: LocalFuncionamentoEstabelecimentoEnsino): LocalFuncionamento {
+  return localFuncionamentoEstabelecimentoEnsino.localFuncionamento;
+}
+
+--------------------------
+
+verificaLocaisFuncionamento() {
+  const found = this.model.locaisFuncionamentoEstabelecimentoEnsino.find(locais => {
+    return locais.localFuncionamento.nome === 'Outros';
+  });
+
+  this.locaisFuncionamentoEstabelecimentoEnsinoComtemOutros = !!found;
+}
+
+--------------------------
+
+this.autocompleteLocaisFuncionamentoEstabelecimentoEnsino.converteOrigemParaDestino = CadastroEstabelecimentoEnsinoComponent.converteLocalFuncionamentoParaLocalFuncionamentoEnsino;
+this.autocompleteLocaisFuncionamentoEstabelecimentoEnsino.reconverteDestinoParaOrigem = CadastroEstabelecimentoEnsinoComponent.reconverteLocalFuncionamentoEnsinoParaLocaisFuncionamento;
+
+--------------------------

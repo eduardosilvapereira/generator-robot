@@ -1,0 +1,7 @@
+{
+  'nome': 'Cor dos Olhos',
+  'url': 'educacao/escolar/cor-olhos',
+  'somenteLeitura': false,
+  'chavePublica': '',
+  'icone': ''
+},

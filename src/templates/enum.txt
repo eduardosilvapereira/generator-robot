@@ -1,0 +1,4 @@
+export enum {{ ENUM_NAME }} {
+  S = 'Sim',
+  N = 'Não'
+}

@@ -1,0 +1,30 @@
+// TODO: VERIFICAR AS IMPORTAÇÕES E A FORMATAÇÃO DO ARQUIVO
+import {Component, Injector, OnInit} from '@angular/core';
+
+import {CadastroGenerico} from '../../../../../share/components/generico/cadastro-generico/cadastro-generico';
+import {CadastroGenericoParametro} from '../../../../../share/components/generico/cadastro-generico/cadastro-generico-parametro';
+import {{{ NAME }}} from '../../../models/{{ NAME_FOR_FILE }}';
+
+@Component({
+  selector: 'spd-cadastro-{{ NAME_FOR_FILE }}',
+  templateUrl: './cadastro-{{ NAME_FOR_FILE }}.component.html',
+  styleUrls: []
+})
+export class Cadastro{{ NAME }}Component extends CadastroGenerico implements OnInit {
+  model: {{ NAME }};
+  parametros: CadastroGenericoParametro;
+
+  constructor(public injector: Injector) {
+    super(injector);
+    this.parametros = new CadastroGenericoParametro('{{ TITLE }}');
+    this.parametros.funcionalidades = ['{{ FUNCTIONALITIES }}'];
+    this.parametros.endPoint = '{{ ENDPOINT }}';
+    this.parametros.acoes = [{{ ACTIONS }}];
+    this.parametros.classeBase = {{ NAME }};
+    this.parametros.atributos = ['i{{ NAME }}', 'chave', 'flagAtivo', 'motivoInatividade'];
+  }
+
+  ngOnInit() {
+    super.inicializar();
+  }
+}

@@ -1,0 +1,7 @@
+// UTILIZAR ESTE ARQUIVO COMO REFERENCIA PARA A IMPORTACAO DOS COMPONENTES
+// TODO: VERIFICAR AS IMPORTAÇÕES E A FORMATAÇÃO DO ARQUIVO
+import {{{ LISTA_NAME }}} from './components/{{ COMPONENTS_FOLDER }}/lista-{{ LISTA_NAME_FOR_FILE }}/lista-{{ LISTA_NAME_FOR_FILE }}.component';
+
+Routes = [
+  { path: 'cor-olhos', component: {{ LISTA_NAME }}, canActivate: [AuthGuardService]},
+];

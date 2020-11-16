@@ -1,0 +1,6 @@
+import {Patch} from '../../../share/models/patch';
+
+export class {{ MODEL_NAME }} extends Patch {
+  i{{ MODEL_NAME }}: number;
+  nome: string;
+}

@@ -1,0 +1,14 @@
+{
+  "cruds": [
+    {
+      "nomeSingular": "Veiculo",
+      "nomePlural": "Veiculos",
+      "tituloSingular": "VeÍculo e Equipamento",
+      "tituloPlural": "VeÍculos e Equipamentos",
+      "funcionalidade": "cadastro-veiculos-saude",
+      "endpoint": "$saude$Veiculo",
+      "acoes": "inserir,alterar,alterar-seus,excluir,imprimir,consultar"
+    }
+  ],
+  "endpoints": null
+}

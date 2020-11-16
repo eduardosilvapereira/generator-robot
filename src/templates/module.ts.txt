@@ -1,0 +1,25 @@
+// UTILIZAR ESTE ARQUIVO COMO REFERENCIA PARA A IMPORTACAO DOS COMPONENTES
+// TODO: VERIFICAR AS IMPORTAÇÕES E A FORMATAÇÃO DO ARQUIVO
+import {CommonModule} from '@angular/common';
+import {FormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import {NgModule} from '@angular/core';
+
+import {{{ CADASTRO_NAME }}} from './components/{{ COMPONENTS_FOLDER }}/cadastro-{{ CADASTRO_NAME_FOR_FILE }}/cadastro-{{ CADASTRO_NAME_FOR_FILE }}.component';
+import {{{ LISTA_NAME }}} from './components/{{ COMPONENTS_FOLDER }}/lista-{{ LISTA_NAME_FOR_FILE }}/lista-{{ LISTA_NAME_FOR_FILE }}.component';
+
+@NgModule({
+  declarations: [
+    {{ CADASTRO_NAME }},
+    {{ LISTA_NAME }},
+  ],
+  imports: [
+    CommonModule,
+    FormsModule,
+    HttpClientModule,
+  ],
+  providers: [],
+  entryComponents: [
+    {{ CADASTRO_NAME }},
+  ]
+})

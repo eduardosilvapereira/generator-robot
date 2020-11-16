@@ -1,0 +1,9 @@
+{
+  'funcionalidade': '{{ FUNCIONALIDADE }}',
+  'urlBusca': '{{ URL_PLURAL }}',
+  'urlBuscaPaginada': '{{ URL_PLURAL }}',
+  'urlBuscaAutocomplete': '{{ URL_PLURAL }}',
+  'urlSalvar': '{{ URL_PLURAL }}',
+  'urlExcluir': '{{ URL_SINGULAR }}',
+  'urlExcluirLista': '{{ URL_PLURAL }}'
+},

@@ -1,0 +1,10 @@
+<mat-form-field appearance="outline" class="p-campo-input" fxFlex="100"
+                        matTooltip="Este campo deve conter o motivo da inatividade"
+                        matTooltipClass="p-mat-tooltip-form-field">
+          <mat-label>Motivo da inatividade</mat-label>
+          <input maxlength="255" [(ngModel)]="model.motivoInatividade" name="motivoInatividade"
+                 spdRequiredTrim matInput
+                 placeholder="Digite o motivo da inatividade"
+                 autocomplete="off" [disabled]="semPermissaoAlterar()">
+          <mat-error>Este campo deve conter o motivo da inatividade</mat-error>
+        </mat-form-field>

@@ -1,0 +1,9 @@
+            <mat-form-field appearance="outline" class="p-campo-input" fxFlex="100"
+                            matTooltip="Este campo deve conter a convencao"
+                            matTooltipClass="p-mat-tooltip-form-field">
+              <mat-label>Convenção</mat-label>
+              <textarea maxlength="255" [(ngModel)]="model.convencao" name="convencao" id="convencao" matInput
+                        placeholder="Digite a convenção" autocomplete="off" matTextareaAutosize [disabled]="semPermissaoAlterar()">
+              </textarea>
+              <mat-error>Este campo deve conter a Convenção</mat-error>
+            </mat-form-field>
